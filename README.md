@@ -1,1 +1,1 @@
-Projet n°3 dela formation développeur web d'Openclassrooms
+Projet n°3 de la formation développeur web d'Openclassrooms 
