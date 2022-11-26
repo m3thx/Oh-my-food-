@@ -1,0 +1,387 @@
+$color-prima: #9356DC;
+$color-secon: #FF79DA;
+$color-tert : #99E2D0;
+$background-grey: rgb(247, 247, 247);
+
+// Général
+
+*+*,
+* {
+    //lobotomized owl selector
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+a,
+ul,
+li {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    font-size: 18px;
+}
+
+h1 {
+    font-family: "Shrikhand", sans-serif;
+    // font-size: 22px;
+}
+
+h2,
+h3,
+p,
+li,
+div {
+    font-family: "Roboto", sans-serif;
+}
+
+// h2 {
+//     font-size: 17px;
+// }
+
+p {
+    font-size: 1em;
+}
+
+// Mixin
+
+@mixin margin {
+    margin: 0 20px;
+}
+
+
+// Header
+
+.header {
+    height: 63px;
+
+    &__title {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-top: 0.5rem
+    }
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $background-grey;
+    height: 340px;
+
+    &__title {
+        line-height: 1;
+        padding: 44px 70px 20px 70px;
+    }
+
+    &__text {
+        font-size: 0.9rem;
+        font-weight: 200;
+        line-height: 1.2;
+        padding: 0 40px 30px 40px;
+    }
+
+    &__choice {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 25px;
+        gap: 16px;
+        width: 100%;
+        height: 52px;
+        background-color: rgb(234, 234, 234);
+
+        & input {
+            font-weight: 400;
+            min-height: 2rem;
+            ;
+        }
+
+        & input {
+            border: none;
+            background-color: rgb(234, 234, 234);
+        }
+
+        & ::placeholder {
+            color: black;
+            font-size: 1.2em;
+            opacity: 1; // For Firefox
+
+        }
+
+
+    }
+}
+
+// Button reusable
+
+.button__purple {
+    color: white;
+    background: linear-gradient($color-secon, $color-prima);
+    width: 218px;
+    height: 50px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    border: none;
+}
+
+// Fonctionnement
+
+.fonction {
+    @include margin();
+    height: 440px;
+
+    &__title {
+        padding: 52px 0 33px 0;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-left: 13px;
+
+        &--button {
+            display: flex;
+            align-items: center;
+            background-color: $background-grey;
+            border: solid 1px $background-grey;
+            border-radius: 20px;
+            width: 100%;
+            height: 70px;
+            box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        &--icon {
+            position: absolute;
+            left: 32px;
+            font-size: 1rem;
+        }
+
+        &--text {
+            position: absolute;
+            left: 74px;
+            margin-top: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+    }
+
+    &__button:nth-child(2)::before {
+        content: "1";
+        position: absolute;
+        left: -12px;
+        top: 25px;
+        font-size: 0.777rem;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background: $color-prima;
+        height: 24px;
+        width: 24px;
+        padding: 2.3px 7px 5px 7px;
+    }
+
+    &__button:nth-child(3)::before {
+        content: "2";
+        position: absolute;
+        left: -12px;
+        top: 25px;
+        font-size: 0.777rem;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background: $color-prima;
+        height: 24px;
+        width: 24px;
+        padding: 2px 7px 5px 7px;
+    }
+
+    &__button:nth-child(4)::before {
+        content: "3";
+        position: absolute;
+        left: -12px;
+        top: 25px;
+        font-size: 0.777rem;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background: $color-prima;
+        height: 24px;
+        width: 24px;
+        padding: 3px 7px 5px 7px;
+    }
+}
+
+// Restaurants
+
+.rest {
+    padding: 0 20px;
+    height: 1227px;
+    background-color: $background-grey;
+
+    &__title {
+        padding: 52px 0 33px 0;
+    }
+
+    &__card {
+        border: 1px solid red;
+        width: 100%;
+        height: 250px;
+        background-color: white;
+        border-radius: 15px;
+        margin-bottom: 18px;
+
+        &__img {
+            width: 100%;
+            height: 172px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 71px;
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                height: 100%;
+                color: black;
+            }
+
+            & h3 {
+                font-size: 1rem;
+                margin-block-start: 0;
+                margin-block-end: 0;
+                padding: 13px 0 5px 15px;
+            }
+            
+            & p {
+                font-size: 0.888rem;
+                font-weight: 300;
+                padding: 0 0 20px 15px;
+            }
+
+            &__icon {
+                font-size: 30px;
+                cursor: pointer;
+                text-decoration: none;
+                color: black;
+                position: relative;
+                font-weight: bold;
+                padding: 24px;
+            }
+
+            &__icon:hover {
+                background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                transition: all 50ms ease-in;
+            }
+
+            &__icon .fa-heart:after {
+                content: "\f004";
+                position: absolute;
+                font-size: 30px;
+                top: center;
+                right: 24px;
+                font-weight: bold;
+                cursor: pointer;
+                visibility: hidden;
+                background: linear-gradient(to top, $color-prima, $color-secon);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+
+            &__icon:hover .fa-heart:after {
+                visibility: visible;
+            }
+
+            // &__icon:hover >.fa-heart {
+            //     background: linear-gradient(to top, $color-prima, $color-secon);
+            //     transition: all 500ms;
+            //     -webkit-background-clip: text;
+            //     -webkit-text-fill-color: transparent;
+            //     background-clip: text;
+            // }
+            // &__icon .fa-heart:after {
+            //     content: "\f004";
+            //     position: relative;
+            //     font-size: 20px;
+            //     bottom: 14px;
+            //     right: 25px;
+            //     top: -4px;
+            //     transition: transform 500ms ease-in;
+            //     display: inline-block;
+            //     font-weight: bold;
+            //     cursor: pointer;
+            //     visibility: hidden;
+            //     background: linear-gradient(to top, $color-prima, $color-secon);
+            //     -webkit-background-clip: text;
+            //     background-clip: text;
+            // }
+            // &__icon:hover > .fa-heart:after {
+            //     transform: scale(2.4);
+            //     visibility: visible;
+            // }
+        }
+
+    }
+}
+
+.footer {
+    background-color: black;
+    height: 197px;
+
+    &__title {
+        font-family: "Shrikhand", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: white;
+        padding: 25px 25px 10px 25px
+    }
+
+    & ul {
+        margin-block-start: 0;
+        padding-left: 25px;
+       
+        & li {
+            margin-bottom: 5px;
+        }
+    }
+
+    & a {
+        color: white;
+        font-weight: 400;
+        font-size: 0.777rem;
+    }
+
+    &__icon {
+        font-size: 0.6rem;
+    }
+
+}
+
+.fa-utensils {
+    margin-right: 15px;
+}
+
+.fa-handshake-angle {
+    margin-right: 10px;
+}
