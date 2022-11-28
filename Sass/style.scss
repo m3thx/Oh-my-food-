@@ -162,7 +162,7 @@ p {
         }
 
         &--button:hover {
-            background: scale-color($color-prima, $lightness:80%);
+            background: scale-color($color-prima, $lightness: 80%);
         }
 
         &--icon {
@@ -253,7 +253,7 @@ p {
             border-top-right-radius: 15px;
         }
 
-        & a[href*="rest2"] > img{
+        & a[href*="rest2"]>img {
             object-fit: cover;
         }
 
@@ -277,80 +277,80 @@ p {
                 margin-block-end: 0;
                 padding: 13px 0 5px 15px;
             }
-            
+
             & p {
                 font-size: 0.888rem;
                 font-weight: 300;
                 padding: 0 0 20px 15px;
             }
-
-            &__icon {
-                font-size: 30px;
-                cursor: pointer;
-                text-decoration: none;
-                color: black;
-                position: relative;
-                font-weight: bold;
-                padding: 24px;
-            }
-
-            &__icon:hover {
-                background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                transition: all 50ms ease-in;
-            }
-
-            &__icon .fa-heart:after {
-                content: "\f004";
-                position: absolute;
-                font-size: 30px;
-                top: center;
-                right: 24px;
-                font-weight: bold;
-                cursor: pointer;
-                visibility: hidden;
-                background: linear-gradient(to top, $color-prima, $color-secon);
-                -webkit-background-clip: text;
-                background-clip: text;
-            }
-
-            &__icon:hover .fa-heart:after {
-                visibility: visible;
-            }
-
-            // &__icon:hover >.fa-heart {
-            //     background: linear-gradient(to top, $color-prima, $color-secon);
-            //     transition: all 500ms;
-            //     -webkit-background-clip: text;
-            //     -webkit-text-fill-color: transparent;
-            //     background-clip: text;
-            // }
-            // &__icon .fa-heart:after {
-            //     content: "\f004";
-            //     position: relative;
-            //     font-size: 20px;
-            //     bottom: 14px;
-            //     right: 25px;
-            //     top: -4px;
-            //     transition: transform 500ms ease-in;
-            //     display: inline-block;
-            //     font-weight: bold;
-            //     cursor: pointer;
-            //     visibility: hidden;
-            //     background: linear-gradient(to top, $color-prima, $color-secon);
-            //     -webkit-background-clip: text;
-            //     background-clip: text;
-            // }
-            // &__icon:hover > .fa-heart:after {
-            //     transform: scale(2.4);
-            //     visibility: visible;
-            // }
         }
 
     }
 }
+
+.heart {
+    &__icon {
+    font-size: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    font-weight: bold;
+    padding: 24px;
+    }
+    &__icon:hover {
+    background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 50ms ease-in;
+    }
+
+    &__icon__fa:after {
+    content: "\f004";
+    position: absolute;
+    font-size: 30px;
+    top: center;
+    right: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    visibility: hidden;
+    background: linear-gradient(to top, $color-prima, $color-secon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    }
+
+    &__icon:hover .fa-heart:after {
+    visibility: visible;
+}
+}
+// &__icon:hover >.fa-heart {
+//     background: linear-gradient(to top, $color-prima, $color-secon);
+//     transition: all 500ms;
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     background-clip: text;
+// }
+// &__icon .fa-heart:after {
+//     content: "\f004";
+//     position: relative;
+//     font-size: 20px;
+//     bottom: 14px;
+//     right: 25px;
+//     top: -4px;
+//     transition: transform 500ms ease-in;
+//     display: inline-block;
+//     font-weight: bold;
+//     cursor: pointer;
+//     visibility: hidden;
+//     background: linear-gradient(to top, $color-prima, $color-secon);
+//     -webkit-background-clip: text;
+//     background-clip: text;
+// }
+// &__icon:hover > .fa-heart:after {
+//     transform: scale(2.4);
+//     visibility: visible;
+// }
 
 .footer {
     background-color: #353535;
@@ -367,7 +367,7 @@ p {
     & ul {
         margin-block-start: 0;
         padding-left: 25px;
-       
+
         & li {
             margin-bottom: 5px;
         }
@@ -391,4 +391,92 @@ p {
 
 .fa-handshake-angle {
     margin-right: 10px;
+}
+
+// Restau
+
+.restau--bckgrd {
+    background: $background-grey;
+}
+
+.restau {
+    &__header {
+    height: 63px;
+    position: relative;
+
+        &__title {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-top: 0.5rem
+        }
+
+        &__icon {
+        position: absolute;
+        font-size: 1.2rem;
+        top: 26px;
+        left: 24px;
+        }
+    }
+    &__img img {
+    width: 100%;
+    height: 256px;
+    }
+    &__name {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 41px 43px 14px;
+        &__title {
+        font-size: 1.5rem;
+        }
+    }
+    &__icon {
+        padding: 0;
+    }    
+    &__heart {
+        font-size: 26px;
+        padding: 0;
+    }
+    
+    &__heart:after {
+    font-size: 26px;
+    top: 1;
+    right: 0px;
+    } 
+    &__section {
+        padding: 0 14px 44px 14px;
+        &__title {
+            text-transform: uppercase;
+            font-size: 1.1rem ;
+            font-weight: 200;
+        }
+    }
+    &__underline {
+        width: 14%;
+        border-bottom: 3px solid $color-tert;
+        margin: 4px 0 12px 0;
+    }
+    &__card {
+        width: 100%;
+        height: 68px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
+        margin-bottom: 12px;
+        &__title {
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 12px 0 6px 12px;
+        }
+        &__text {
+            display: flex;
+            justify-content: space-between;
+            font-size: .8rem;
+            font-weight: 300;
+            padding: 0 0 16px 12px;
+        }
+        &__price {
+            padding-right: 24px;
+            font-weight: 500;
+        }
+    }
 }
