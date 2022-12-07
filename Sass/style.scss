@@ -15,18 +15,17 @@ $background-grey: rgb(247, 247, 247);
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html,
 a,
 ul,
 li {
-    box-sizing: border-box;
+    font-size: 16px;
     text-decoration: none;
     list-style-type: none;
     color: black;
-    font-size: 18px;
 }
 
 h1 {
@@ -52,20 +51,34 @@ p {
 
 // Mixin
 
-@mixin margin {
-    margin: 0 20px;
+    // Chiffre devant bouton
+
+@mixin nbrBeforeCard ($H_W: 24px, $padding: 3px 7px 5px 7px ){
+        position: absolute;
+        left: -12px;
+        top: calc(50% - ($H_W / 2));
+        font-size: 0.875rem;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background: $color-prima;
+        height: $H_W;
+        width: $H_W;
+        padding: $padding;
 }
 
 
 // Header
 
 .header {
-    height: 63px;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &__title {
-        font-size: 1.8rem;
+        font-size: 2rem;
         text-align: center;
-        padding-top: 0.5rem
     }
 }
 
@@ -83,7 +96,7 @@ p {
     }
 
     &__text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 200;
         line-height: 1.2;
         padding: 0 40px 30px 40px;
@@ -93,11 +106,15 @@ p {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-left: 25px;
         gap: 16px;
         width: 100%;
-        height: 52px;
+        height: 3.25rem;
         background-color: rgb(234, 234, 234);
+
+        &__icon {
+            font-size: 1.125rem;
+            padding-bottom: 2px;
+        }
 
         & input {
             font-weight: 400;
@@ -112,7 +129,7 @@ p {
 
         & ::placeholder {
             color: black;
-            font-size: 1.2em;
+            font-size: 1rem;
             opacity: 1; // For Firefox
 
         }
@@ -126,28 +143,28 @@ p {
 .button__purple {
     color: white;
     background: linear-gradient($color-secon, $color-prima);
-    width: 218px;
-    height: 50px;
-    font-size: 0.9rem;
-    border-radius: 25px;
+    width: 13.625rem;
+    height: 3.125rem;
+    font-size: 1rem;
+    border-radius: 50px;
     border: none;
 }
 
 // Fonctionnement
 
 .fonction {
-    @include margin();
-    height: 440px;
+    min-height: 27.5rem;
 
     &__title {
-        padding: 52px 0 33px 0;
+        padding: 52px 0 30px 5%;
     }
 
     &__button {
         display: flex;
         align-items: center;
         position: relative;
-        margin-left: 13px;
+        margin: 0 auto 25px auto;
+        width: min(89%, 435px);
 
         &--button {
             display: flex;
@@ -156,74 +173,46 @@ p {
             border: none;
             border-radius: 20px;
             width: 100%;
-            height: 70px;
+            height: 4.25rem;
             box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
-            margin-bottom: 25px;
+            
         }
 
         &--button:hover {
             background: scale-color($color-prima, $lightness: 80%);
+            box-shadow: 1px 4px 15px 0px rgba(0, 0, 0, 0.6);
+
         }
 
         &--icon {
             position: absolute;
-            left: 32px;
+            left: 10%;
             font-size: 1rem;
         }
 
         &--text {
             position: absolute;
-            left: 74px;
+            left: 22%;
             margin-top: 0;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             font-weight: 500;
         }
 
     }
 
     &__button:nth-child(2)::before {
+        @include nbrBeforeCard();
         content: "1";
-        position: absolute;
-        left: -12px;
-        top: 25px;
-        font-size: 0.777rem;
-        color: white;
-        text-align: center;
-        border-radius: 50%;
-        background: $color-prima;
-        height: 24px;
-        width: 24px;
-        padding: 2.3px 7px 5px 7px;
     }
 
     &__button:nth-child(3)::before {
+        @include nbrBeforeCard();
         content: "2";
-        position: absolute;
-        left: -12px;
-        top: 25px;
-        font-size: 0.777rem;
-        color: white;
-        text-align: center;
-        border-radius: 50%;
-        background: $color-prima;
-        height: 24px;
-        width: 24px;
-        padding: 2px 7px 5px 7px;
     }
 
     &__button:nth-child(4)::before {
+        @include nbrBeforeCard();
         content: "3";
-        position: absolute;
-        left: -12px;
-        top: 25px;
-        font-size: 0.777rem;
-        color: white;
-        text-align: center;
-        border-radius: 50%;
-        background: $color-prima;
-        height: 24px;
-        width: 24px;
-        padding: 3px 7px 5px 7px;
     }
 
 }
@@ -231,99 +220,127 @@ p {
 // Restaurants
 
 .rest {
-    padding: 0 20px;
     height: 1227px;
     background-color: $background-grey;
 
     &__title {
-        padding: 52px 0 33px 0;
+        padding: 52px 0 32px 5%;
     }
 
     &__card {
-        width: 100%;
+        margin-bottom: 1.125rem;
+        margin-inline: auto;
+        width: min(89%, 475px);
         height: 250px;
         background-color: white;
         border-radius: 15px;
-        margin-bottom: 18px;
 
         &__img {
             width: 100%;
-            height: 172px;
+            height: 70%;
+            object-fit: cover;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
-        }
-
-        & a[href*="rest2"]>img {
-            object-fit: cover;
         }
 
         &__content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 71px;
+            height: 30%;
 
             &__text {
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
+                justify-content: space-between;
                 height: 100%;
                 color: black;
+                letter-spacing: .3px;
+                padding: 13px 0 13px 15px;
             }
 
             & h3 {
-                font-size: 1rem;
-                margin-block-start: 0;
-                margin-block-end: 0;
-                padding: 13px 0 5px 15px;
+                font-size: 1.1rem;
+                // padding: 13px 0 5px 15px;
             }
 
             & p {
-                font-size: 0.888rem;
+                font-size: 1rem;
                 font-weight: 300;
-                padding: 0 0 20px 15px;
+                // padding: 0 0 20px 15px;
             }
         }
 
     }
 }
 
+// Remplissage du coeur
+
 .heart {
     &__icon {
-    font-size: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    position: relative;
-    font-weight: bold;
-    padding: 24px;
+        font-size: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+        position: relative;
+        font-weight: bold;
+        text-align: center;
+        padding-right: 24px;
     }
+
     &__icon:hover {
-    background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: all 50ms ease-in;
+        background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
+        -webkit-background-clip: text; // Limite le background a la surface occupé par le texte 
+        -webkit-text-fill-color: transparent; // Change la couleur du text 
+        background-clip: text; // Limite le background a la surface occupé par le texte
+        animation: heartFileIn linear 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
     }
 
     &__icon__fa:after {
-    content: "\f004";
-    position: absolute;
-    font-size: 30px;
-    top: center;
-    right: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    visibility: hidden;
-    background: linear-gradient(to top, $color-prima, $color-secon);
-    -webkit-background-clip: text;
-    background-clip: text;
+        content: "\f004";
+        position: absolute;
+        font-size: 30px;
+        top: center;
+        right: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        visibility: hidden;
+        background: linear-gradient(to top, $color-prima, $color-secon);
+        -webkit-background-clip: text;
+        background-clip: text;
     }
 
     &__icon:hover .fa-heart:after {
-    visibility: visible;
+        visibility: visible;
+    }
 }
+
+
+@keyframes heartFileIn {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.50;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
+
 // &__icon:hover >.fa-heart {
 //     background: linear-gradient(to top, $color-prima, $color-secon);
 //     transition: all 500ms;
@@ -354,33 +371,35 @@ p {
 
 .footer {
     background-color: #353535;
-    height: 197px;
+    height: 12.5rem;
 
     &__title {
         font-family: "Shrikhand", sans-serif;
         font-size: 1rem;
         letter-spacing: 1px;
         color: white;
-        padding: 25px 25px 10px 25px
+        padding: 26px 25px 10px 5%
     }
 
     & ul {
         margin-block-start: 0;
-        padding-left: 25px;
+        padding-left: 5%;
 
         & li {
-            margin-bottom: 5px;
+
+            line-height: 1.2;
+            padding-bottom: 0.625rem;
         }
     }
 
     & a {
         color: white;
         font-weight: 400;
-        font-size: 0.777rem;
+        font-size: 0.888rem;
     }
 
     &__icon {
-        font-size: 0.6rem;
+        font-size: 0.888rem;
     }
 
 }
@@ -393,7 +412,7 @@ p {
     margin-right: 10px;
 }
 
-// Restau
+// Pages restau
 
 .restau--bckgrd {
     background: $background-grey;
@@ -401,60 +420,85 @@ p {
 
 .restau {
     &__header {
-    height: 63px;
-    position: relative;
+        height: 63px;
+        position: relative;
 
         &__title {
-        font-size: 1.8rem;
-        text-align: center;
-        padding-top: 0.5rem
+            font-size: 1.8rem;
+            text-align: center;
+            padding-top: 0.5rem
         }
 
         &__icon {
-        position: absolute;
-        font-size: 1.2rem;
-        top: 26px;
-        left: 24px;
+            position: absolute;
+            font-size: 1.2rem;
+            top: 22px;
+            left: 24px;
         }
     }
-    &__img img {
-    width: 100%;
-    height: 256px;
+
+    &__img {
+        height: 256px;
+        background-image: url("/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+        background-size: cover;
     }
+
     &__name {
         display: flex;
         justify-content: space-between;
-        margin: 40px 41px 43px 14px;
+        padding: 0 41px 43px 14px;
+        position: relative;
+
         &__title {
-        font-size: 1.5rem;
+            font-size: 1.5rem;
         }
     }
+
+    &__name::before {
+        // Bordure sur l'image
+        content: "";
+        position: absolute;
+        top: -39px;
+        background: $background-grey;
+        height: 40px;
+        width: 100%;
+        margin-left: -14px;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+
+    }
+
     &__icon {
         padding: 0;
-    }    
+    }
+
     &__heart {
         font-size: 26px;
         padding: 0;
     }
-    
+
     &__heart:after {
-    font-size: 26px;
-    top: 1;
-    right: 0px;
-    } 
+        font-size: 26px;
+        top: 1;
+        right: 0px;
+    }
+
     &__section {
         padding: 0 14px 44px 14px;
+
         &__title {
             text-transform: uppercase;
-            font-size: 1.1rem ;
+            font-size: 1.1rem;
             font-weight: 200;
         }
     }
+
     &__underline {
         width: 14%;
         border-bottom: 3px solid $color-tert;
         margin: 4px 0 12px 0;
     }
+
     &__card {
         width: 100%;
         height: 68px;
@@ -462,21 +506,208 @@ p {
         border-radius: 15px;
         box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
         margin-bottom: 12px;
+        position: relative;
+        overflow: hidden;
+
         &__title {
             font-size: 1rem;
             font-weight: 400;
             padding: 12px 0 6px 12px;
+            white-space: nowrap; //le texte doit rester sur une ligne
+            overflow: hidden; //le texte dépassant de son conteneur est caché
+            text-overflow: ellipsis; //le texte cahé est remplacer par des points
         }
+
         &__text {
-            display: flex;
-            justify-content: space-between;
+            position: relative;
             font-size: .8rem;
             font-weight: 300;
             padding: 0 0 16px 12px;
+            white-space: nowrap; //le texte doit rester sur une ligne
+            overflow: hidden; //le texte dépassant de son conteneur est caché
+            text-overflow: ellipsis; //le texte cahé est remplacer par des points
         }
+
         &__price {
-            padding-right: 24px;
+            position: absolute;
+            right: 0px;
+            padding-right: 3%;
+            margin-left: 3%;
             font-weight: 500;
         }
     }
+}
+
+// Animation
+
+//Loader sur les cards
+
+.restau__card:hover {
+    & .restau {
+        &__animation {
+            transition: transform 2000ms ease-out;
+            transform: translateX(-60px);
+            transform-origin: 100%;
+
+            &__icon {
+                transition: transform 2000ms ease-out;
+                transform: rotate(360deg)
+            }
+        }
+
+        &__card__price {
+            transition: transform 2000ms ease-out;
+            transform: translateX(-60px);
+        }
+    }
+}
+
+.restau__animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: $color-tert;
+    position: absolute;
+    top: 0;
+    right: -60px;
+
+    &__icon {
+        color: $color-tert;
+        background: white;
+        border-radius: 50%;
+        font-size: 25px;
+
+    }
+}
+
+//Apparition progressive  des menus
+
+.restau__card {
+    opacity: 0;
+    animation: cardFadeIn linear 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    &__1 {
+        animation-delay: 100ms;
+    }
+
+    &__2 {
+        animation-delay: 200ms;
+    }
+
+    &__3 {
+        animation-delay: 300ms;
+    }
+
+    &__4 {
+        animation-delay: 400ms;
+    }
+
+    &__5 {
+        animation-delay: 500ms;
+    }
+
+    &__6 {
+        animation-delay: 600ms;
+    }
+
+    &__7 {
+        animation-delay: 700ms;
+    }
+
+    &__8 {
+        animation-delay: 800ms;
+    }
+
+    &__9 {
+        animation-delay: 900ms;
+    }
+
+    &__10 {
+        animation-delay: 1000ms;
+    }
+}
+
+@keyframes cardFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+// Medaiquery
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .fonction {
+
+        &__button:nth-child(2)::before, &__button:nth-child(3)::before, &__button:nth-child(4)::before {
+        @include nbrBeforeCard(30px, 5px 7px 5px 7px);
+        }
+    }   
+    
+    .fonction__title, .rest__title {
+        width: 100%;
+        padding: 52px 0 32px 0;
+        text-align: center;
+    }
+
+    .rest {
+        height: 1300px;    
+        &__card {
+            height: 260px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    html {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .fonction {
+        &__title {
+            padding-bottom: 50px;
+        }
+        &__button:nth-child(2)::before, &__button:nth-child(3)::before, &__button:nth-child(4)::before {
+        @include nbrBeforeCard(30px, 5px 7px 5px 7px);
+        }
+    }   
+    .rest {
+        height: 130%;
+        &--flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin-inline: auto;
+        padding: 40px 0 70px 0;
+        }
+    }        
+    .footer__title, .footer ul {
+        padding-left: 0;
+        text-align: center;
+    }
+
+
 }
