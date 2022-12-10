@@ -513,12 +513,12 @@ p {
 
     &__img--1 {
         height: min(69vw, 520px);
-        background-image: url("/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+        background-image: url("/src/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
         background-size: cover;
     }
     &__img--2 {
         height: min(69vw, 520px);
-        background-image: url("/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+        background-image: url("/src/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
         background-size: cover;
     }
     &__img--3 {
@@ -528,7 +528,7 @@ p {
     }
     &__img--4 {
         height: min(69vw, 520px);
-        background-image: url("/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+        background-image: url("src/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
         background-size: cover;
     }
 
