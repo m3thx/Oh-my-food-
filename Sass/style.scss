@@ -30,7 +30,6 @@ li {
 
 h1 {
     font-family: "Shrikhand", sans-serif;
-    // font-size: 22px;
 }
 
 h2,
@@ -41,31 +40,98 @@ div {
     font-family: "Roboto", sans-serif;
 }
 
-// h2 {
-//     font-size: 17px;
-// }
-
 p {
     font-size: 1em;
 }
 
 // Mixin
 
-    // Chiffre devant bouton
+// Chiffre devant bouton
 
-@mixin nbrBeforeCard ($H_W: 24px, $padding: 3px 7px 5px 7px ){
-        position: absolute;
-        left: -12px;
-        top: calc(50% - ($H_W / 2));
-        font-size: 0.875rem;
-        color: white;
-        text-align: center;
-        border-radius: 50%;
-        background: $color-prima;
-        height: $H_W;
-        width: $H_W;
-        padding: $padding;
+@mixin nbrBeforeCard ($H_W: 24px, $padding: 3px 7px 5px 7px) {
+    position: absolute;
+    left: -12px;
+    top: calc(50% - ($H_W / 2));
+    font-size: 0.875rem;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    background: $color-prima;
+    height: $H_W;
+    width: $H_W;
+    padding: $padding;
 }
+
+// Animation - Loader
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $color-prima;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: vanish 3s 1 linear forwards;
+
+    &__title {
+        color: white;
+        font-size: 3rem;
+    }
+
+    &__loader {
+        display: block;
+        width: 105px;
+        height: 105px;
+        position: relative;
+    }
+
+    &__loader::before {
+        content: "";
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        border: 6px dotted;
+        border-color: white transparent $color-tert transparent;
+        animation: preloader 2s 2 linear;
+    }
+}
+
+@keyframes preloader {
+    0% {
+        transform: rotate(0turn);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes vanish {
+    0% {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+    99% {
+        z-index: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: -10;
+    }
+
+}
+
+
 
 
 // Header
@@ -125,6 +191,7 @@ p {
         & input {
             border: none;
             background-color: rgb(234, 234, 234);
+            width: 150px;
         }
 
         & ::placeholder {
@@ -148,6 +215,10 @@ p {
     font-size: 1rem;
     border-radius: 50px;
     border: none;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 1px 4px 15px 0px rgba(0, 0, 0, 0.6);
+    }
 }
 
 // Fonctionnement
@@ -175,7 +246,7 @@ p {
             width: 100%;
             height: 4.25rem;
             box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
-            
+
         }
 
         &--button:hover {
@@ -420,7 +491,10 @@ p {
 
 .restau {
     &__header {
-        height: 63px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
         position: relative;
 
         &__title {
@@ -431,26 +505,42 @@ p {
 
         &__icon {
             position: absolute;
-            font-size: 1.2rem;
-            top: 22px;
+            font-size: 1.3rem;
+            top: 44%;
             left: 24px;
         }
     }
 
-    &__img {
-        height: 256px;
+    &__img--1 {
+        height: min(69vw, 520px);
         background-image: url("/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
         background-size: cover;
     }
+    &__img--2 {
+        height: min(69vw, 520px);
+        background-image: url("/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+        background-size: cover;
+    }
+    &__img--3 {
+        height: min(69vw, 520px);
+        background-image: url("/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+        background-size: cover;
+    }
+    &__img--4 {
+        height: min(69vw, 520px);
+        background-image: url("/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+        background-size: cover;
+    }
+
 
     &__name {
         display: flex;
-        justify-content: space-between;
-        padding: 0 41px 43px 14px;
         position: relative;
+        justify-content: space-between;
 
         &__title {
             font-size: 1.5rem;
+            padding-left: 4%;
         }
     }
 
@@ -462,57 +552,85 @@ p {
         background: $background-grey;
         height: 40px;
         width: 100%;
-        margin-left: -14px;
         border-top-left-radius: 100px;
         border-top-right-radius: 100px;
 
     }
 
     &__icon {
-        padding: 0;
+        padding-right: 2.625rem;
     }
 
     &__heart {
-        font-size: 26px;
-        padding: 0;
+        font-size: 1.625rem;
+        
     }
 
     &__heart:after {
-        font-size: 26px;
-        top: 1;
-        right: 0px;
+        font-size: 1.625rem;
+        top: 4px;
+        right: 2.625rem;
     }
 
     &__section {
-        padding: 0 14px 44px 14px;
+        width: min(89%, 450px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
 
         &__title {
             text-transform: uppercase;
             font-size: 1.1rem;
             font-weight: 200;
+            padding-top: 43px;
+        }
+
+        &__underline {
+            width: 40px;
+            border-bottom: 3px solid $color-tert;
+            margin: 4px 0 12px 0;
         }
     }
 
-    &__underline {
-        width: 14%;
-        border-bottom: 3px solid $color-tert;
-        margin: 4px 0 12px 0;
+    &--row {
+        width: 100%;
     }
 
     &__card {
-        width: 100%;
-        height: 68px;
+        width: min(100%, 470px);
+        height: 4.25rem;
         background-color: white;
         border-radius: 15px;
         box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.2);
         margin-bottom: 12px;
+        // margin-inline: auto;
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 5%;
+            flex-grow: 1;
+            overflow: hidden; //le texte dépassant de son conteneur est caché
+        }
 
         &__title {
             font-size: 1rem;
             font-weight: 400;
-            padding: 12px 0 6px 12px;
+            padding: 12px 0 0 12px;
             white-space: nowrap; //le texte doit rester sur une ligne
             overflow: hidden; //le texte dépassant de son conteneur est caché
             text-overflow: ellipsis; //le texte cahé est remplacer par des points
@@ -520,7 +638,7 @@ p {
 
         &__text {
             position: relative;
-            font-size: .8rem;
+            font-size: .9rem;
             font-weight: 300;
             padding: 0 0 16px 12px;
             white-space: nowrap; //le texte doit rester sur une ligne
@@ -529,11 +647,21 @@ p {
         }
 
         &__price {
-            position: absolute;
-            right: 0px;
-            padding-right: 3%;
-            margin-left: 3%;
+            width: 15%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 0 24px 15px 0;
+            margin-left: 5px;
             font-weight: 500;
+        }
+    }
+
+    &__button {
+        display: flex;
+
+        &__purple {
+            margin: 2rem auto 2.5rem auto;
         }
     }
 }
@@ -542,46 +670,64 @@ p {
 
 //Loader sur les cards
 
-.restau__card:hover {
-    & .restau {
-        &__animation {
-            transition: transform 2000ms ease-out;
-            transform: translateX(-60px);
-            transform-origin: 100%;
-
-            &__icon {
-                transition: transform 2000ms ease-out;
-                transform: rotate(360deg)
-            }
-        }
-
-        &__card__price {
-            transition: transform 2000ms ease-out;
-            transform: translateX(-60px);
-        }
-    }
-}
-
 .restau__animation {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
+    width: 0;
     height: 100%;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     background: $color-tert;
-    position: absolute;
-    top: 0;
-    right: -60px;
+    transition: all 1s;
 
     &__icon {
         color: $color-tert;
         background: white;
         border-radius: 50%;
-        font-size: 25px;
+        font-size: 30px;
+        position: relative;
+        right: -35px;      
 
     }
+}
+
+.restau__card:hover {
+    & .restau__card__price {
+        animation: pricePadding ease-in-out 1s forwards;
+    }
+    & .restau__animation {
+            animation: divFill ease-in-out 1s forwards;
+
+            &__icon {
+                animation: iconSpin ease-in-out 1s forwards;
+            }
+
+    }
+}
+@keyframes pricePadding {
+    0% {
+        padding-right: 24px;
+    }
+    100%{
+        padding-right: 12px;
+    }
+}
+@keyframes divFill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60px;
+    }
+}
+@keyframes iconSpin {
+    0% {
+        rotate: 0turn;
+    }
+    100% {
+        rotate: 1turn;
+        translate: -35px;
+    }
+    
 }
 
 //Apparition progressive  des menus
@@ -654,60 +800,126 @@ p {
     html {
         font-size: 18px;
     }
+
     h2 {
         font-size: 1.8rem;
     }
+
     .fonction {
 
-        &__button:nth-child(2)::before, &__button:nth-child(3)::before, &__button:nth-child(4)::before {
-        @include nbrBeforeCard(30px, 5px 7px 5px 7px);
+        &__button:nth-child(2)::before,
+        &__button:nth-child(3)::before,
+        &__button:nth-child(4)::before {
+            @include nbrBeforeCard(30px, 5px 7px 5px 7px);
         }
-    }   
-    
-    .fonction__title, .rest__title {
+    }
+
+    .fonction__title,
+    .rest__title {
         width: 100%;
         padding: 52px 0 32px 0;
         text-align: center;
     }
 
     .rest {
-        height: 1300px;    
+        height: 1300px;
+
         &__card {
             height: 260px;
         }
+
+        &__card__content__text {
+            padding: 10px 0 15px 15px;
+        }
     }
+
+    // Restau
+
+        // &__underline {
+        //     width: min(14%, 40px);
+        //     border-bottom: 3px solid $color-tert;
+        //     margin: 4px 0 12px 0;
+        // }
+
+        // &--row {
+        //     display: flex;
+        //     flex-direction: inherit;
+        //     justify-content: center;
+        //     align-items: center;
+        //     width: 100%;
+        // }
+    
+
+
 }
 
 @media screen and (min-width: 992px) {
     html {
         font-size: 20px;
     }
+
     h2 {
         font-size: 1.8rem;
     }
+
     .fonction {
         &__title {
             padding-bottom: 50px;
         }
-        &__button:nth-child(2)::before, &__button:nth-child(3)::before, &__button:nth-child(4)::before {
-        @include nbrBeforeCard(30px, 5px 7px 5px 7px);
+
+        &__button:nth-child(2)::before,
+        &__button:nth-child(3)::before,
+        &__button:nth-child(4)::before {
+            @include nbrBeforeCard(30px, 5px 7px 5px 7px);
         }
-    }   
+    }
+
     .rest {
         height: 130%;
+
         &--flex {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        max-width: 1100px;
-        margin-inline: auto;
-        padding: 40px 0 70px 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin-inline: auto;
+            padding: 40px 0 70px 0;
         }
-    }        
-    .footer__title, .footer ul {
+    }
+
+    .footer__title,
+    .footer ul {
         padding-left: 0;
         text-align: center;
     }
 
 
+}
+
+@media screen and (min-width: 1400px) {
+    html {
+        font-size: 22px;
+    }
+    .restau {
+        &__section {
+            width: min(95%, 1650px);
+        }
+        &--row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: nowrap;
+        }
+
+    }
+    .row4cards {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 80%;
+        margin-inline: auto;
+        // & .restau__card {
+        //     width: min(100%, 380px);
+        // }
+    }
 }
