@@ -308,7 +308,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: heartFileIn linear 1s;
+  animation: heartFileIn ease-in-out 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
 }
@@ -459,7 +459,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin-inline: auto;
 }
 .restau__section__header {
   display: flex;
@@ -481,7 +481,7 @@ p {
   width: 100%;
 }
 .restau__card {
-  width: min(100%, 470px);
+  width: min(98%, 450px);
   height: 4.25rem;
   background-color: white;
   border-radius: 15px;
@@ -589,7 +589,7 @@ p {
 }
 .restau__card {
   opacity: 0;
-  animation: cardFadeIn linear 1s;
+  animation: cardFadeIn linear 50ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -628,7 +628,7 @@ p {
   0% {
     opacity: 0;
   }
-  50% {
+  60% {
     opacity: 0;
   }
   100% {
@@ -712,23 +712,13 @@ p {
   }
 }
 @media screen and (min-width: 1400px) {
-  html {
-    font-size: 22px;
-  }
-  .restau__section {
-    width: min(95%, 1650px);
-  }
-  .restau--row {
+  .restau__column {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: nowrap;
-  }
-  .row4cards {
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 80%;
+    width: min(98%, 1650px);
     margin-inline: auto;
+  }
+  .restau__section {
+    justify-content: flex-start;
   }
 }/*# sourceMappingURL=style.css.map */
