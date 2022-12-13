@@ -360,7 +360,7 @@ p {
     }
 
     &__icon:hover {
-        background: linear-gradient(to bottoom, $color-prima, $color-secon); // A corriger
+        background: linear-gradient(to bottom, $color-prima, $color-secon); // A corriger
         -webkit-background-clip: text; // Limite le background a la surface occupé par le texte 
         -webkit-text-fill-color: transparent; // Change la couleur du text 
         background-clip: text; // Limite le background a la surface occupé par le texte
@@ -372,8 +372,7 @@ p {
     &__icon__fa:after {
         content: "\f004";
         position: absolute;
-        font-size: 30px;
-        top: center;
+        font-size: 30px;  
         right: 24px;
         font-weight: bold;
         cursor: pointer;
@@ -872,10 +871,12 @@ p {
         text-align: center;
     }
 
-
+    .heart__icon__fa:after {
+        top: -1px;
+    }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1440px) {
 
     .restau {
         &__column {

@@ -304,7 +304,7 @@ p {
   padding-right: 24px;
 }
 .heart__icon:hover {
-  background: linear-gradient(to bottoom, #9356DC, #FF79DA);
+  background: linear-gradient(to bottom, #9356DC, #FF79DA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -316,7 +316,6 @@ p {
   content: "\f004";
   position: absolute;
   font-size: 30px;
-  top: center;
   right: 24px;
   font-weight: bold;
   cursor: pointer;
@@ -710,8 +709,11 @@ p {
     padding-left: 0;
     text-align: center;
   }
+  .heart__icon__fa:after {
+    top: -1px;
+  }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1440px) {
   .restau__column {
     display: flex;
     flex-direction: row;
