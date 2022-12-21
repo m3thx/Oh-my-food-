@@ -317,6 +317,7 @@ p {
   position: absolute;
   font-size: 30px;
   right: 24px;
+  bottom: -12px;
   font-weight: bold;
   cursor: pointer;
   visibility: hidden;
@@ -536,7 +537,6 @@ p {
 .restau__animation {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 0;
   height: 100%;
   background: #99E2D0;
@@ -547,8 +547,7 @@ p {
   background: white;
   border-radius: 50%;
   font-size: 30px;
-  position: relative;
-  right: -35px;
+  margin: auto;
 }
 
 .restau__card:hover .restau__card__price {
@@ -558,7 +557,8 @@ p {
   animation: divFill ease-in-out 1s forwards;
 }
 .restau__card:hover .restau__animation__icon {
-  animation: iconSpin ease-in-out 1s forwards;
+  transition: all 1s;
+  transform: rotate(2turn);
 }
 
 @keyframes pricePadding {
@@ -575,15 +575,6 @@ p {
   }
   100% {
     width: 60px;
-  }
-}
-@keyframes iconSpin {
-  0% {
-    rotate: 0turn;
-  }
-  100% {
-    rotate: 1turn;
-    translate: -35px;
   }
 }
 .restau__card {
