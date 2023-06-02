@@ -28,7 +28,7 @@ Il n’y a plus qu’à le développer pour mobile, tablette et desktop en s’a
 - [Prototype du site](https://www.figma.com/proto/t4449fzDnwGYmzuwQdu87V/Maquettes-Ohmyfood-(mobile-et-desktop)?node-id=25368-591&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25368%3A591&show-proto-sidebar=1)
 - [Fichiers sources (images et textes)](https://course.oc-static.com/projects/D%C3%A9veloppeur+Web/IW_P4+Animations+CSS+Ohmyfood/Images+et+textes+Ohmyfood.zip)
 
- #### Guide d'étape
+ #### Guide d'étapes
 Afin de vous aider à réaliser ce projet, vous pouvez consulter ce [guide d’étapes](https://course.oc-static.com/projects/D%C3%A9veloppeur+Web/IW_P4+Animations+CSS+Ohmyfood/Guide+d%E2%80%99e%CC%81tapes+cle%CC%81s+%E2%80%93+Ame%CC%81liorez+l'interface+d'un+site+mobile+avec+des+animations+CSS.pdf) à suivre, qui contient des recommandations et des ressources pour organiser votre travail.
 
 
