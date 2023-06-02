@@ -317,7 +317,6 @@ p {
   position: absolute;
   font-size: 30px;
   right: 24px;
-  bottom: -12px;
   font-weight: bold;
   cursor: pointer;
   visibility: hidden;
